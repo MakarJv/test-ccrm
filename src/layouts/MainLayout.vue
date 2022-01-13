@@ -26,7 +26,7 @@ import Sidebar from '@/components/app/Sidebar'
 export default {
   name: 'main-layout',
   components: {
-   Navbar, Sidebar
+    Navbar,Sidebar
   }
 }
 </script>
