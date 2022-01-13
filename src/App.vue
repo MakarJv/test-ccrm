@@ -14,7 +14,7 @@ export default {
   computed:{
     layout() {
       console.log(this.$route.meta)
-      return 'main-layout'
+      return 'empty-layout'
     }
   },
   comments: {
