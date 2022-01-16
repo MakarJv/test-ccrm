@@ -62,7 +62,7 @@
 
 <script>
 import {email, required, minLength} from 'vuelidate/lib/validators'
-import messages from '../utils/messages'
+import messages from '@/utils/messages'
 
 export default {
   name: 'login',
@@ -91,11 +91,10 @@ export default {
       }
 
       try {
-        console.log(formData)
         await this.$store.dispatch('login', formData)
         this.$router.push('/')
       } catch (e) {
-        console.log(formData)
+        console.log()
       }
     }
   }
