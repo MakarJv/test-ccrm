@@ -6,8 +6,10 @@ import store from './store.js'
 import 'materialize-css/dist/js/materialize.min'
 import dateFilter from '@/filters/date.filter.js'
 import Vuelidate from 'vuelidate'
+import messagePlagin from "@/utils/message.plagin"
 
 Vue.config.productionTip = false
+Vue.use(messagePlagin)
 Vue.use(Vuelidate)
 Vue.filter('date', dateFilter)
 
