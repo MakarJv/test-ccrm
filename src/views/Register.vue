@@ -49,15 +49,15 @@
         >
         <label for="name">Имя</label>
         <small
-          class="helper-text invalid"
-          v-if="$v.name.$dirty && !$v.name.required"
+            class="helper-text invalid"
+            v-if="$v.name.$dirty && !$v.name.required"
         >
           Введите ваше имя
         </small>
       </div>
       <p>
         <label>
-          <input type="checkbox" v-model="agree"/>
+          <input type="checkbox" v-model="agree" />
           <span>С правилами согласен</span>
         </label>
       </p>
@@ -105,19 +105,17 @@ export default {
         return
       }
 
-      const formData ={
+      const formData = {
         email: this.email,
         password: this.password,
         name: this.name
       }
+
       try {
-        await this.$store.dispatch('register',formData)
-        console.log('test')
+        await this.$store.dispatch('register', formData)
         this.$router.push('/')
       } catch (e) {
-        console.log('post')
-      }
-
+        console.log('post')}
     }
   }
 }
