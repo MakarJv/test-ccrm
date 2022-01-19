@@ -25,7 +25,8 @@ firebase.initializeApp({
 	storageBucket: "vue-crm-a5b77.appspot.com",
 	messagingSenderId: "625223052678",
 	appId: "1:625223052678:web:497a78998d1f2aa9561007",
-	measurementId: "G-6HGE1GXGCP"
+	measurementId: "G-6HGE1GXGCP",
+	databaseURL: "https://vue-crm-a5b77-default-rtdb.europe-west1.firebasedatabase.app"
 })
 
 let app
