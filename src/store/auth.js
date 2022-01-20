@@ -1,14 +1,9 @@
 import firebase from 'firebase/compat/app'
 
 export default {
-	mutations: {
-		async log() {
-			console.log('commit')
-		}
-	},
 	actions: {
 		// eslint-disable-next-line no-unused-vars
-		async login({dispatch, commit}, {email, password}) {
+		async login({dispatch: dispatch, commit}, {email, password}) {
 			try {
 				await firebase.auth().signInWithEmailAndPassword(email, password)
 			} catch (e) {
@@ -20,12 +15,10 @@ export default {
 			try {
 				await firebase.auth().createUserWithEmailAndPassword(email, password)
 				const uid = await dispatch('getUid')
-				console.log(uid)
 				await firebase.database().ref(`/users/${uid}/info`).set({
 					bill: 10000,
-					name: name
+					name
 				})
-				console.log('pot')
 			} catch (e) {
 				commit('setError', e)
 				throw e
