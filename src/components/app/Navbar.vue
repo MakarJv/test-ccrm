@@ -2,10 +2,10 @@
   <nav class="navbar orange lighten-1">
     <div class="nav-wrapper">
       <div class="navbar-left">
-        <a href="#" @click.p.prevent="$emit('click')">
+        <a href="#" @click.prevent="$emit('click')">
           <i class="material-icons black-text">dehaze</i>
         </a>
-        <span class="black-text">{{ date | date('datetime')}}</span>
+        <span class="black-text">{{date | date('datetime')}}</span>
       </div>
 
       <ul class="right hide-on-small-and-down">
@@ -16,7 +16,7 @@
               data-target="dropdown"
               ref="dropdown"
           >
-            USER NAME
+            {{name}}
             <i class="material-icons right">arrow_drop_down</i>
           </a>
 
@@ -39,6 +39,7 @@
   </nav>
 </template>
 
+
 <script>
 export default {
   data: () => ({
@@ -52,13 +53,18 @@ export default {
       this.$router.push('/login?message=logout')
     }
   },
+  computed: {
+    name() {
+      return this.$store.getters.info.name
+    }
+  },
   mounted() {
-    this.interval = setInterval(()=> {
+    this.interval = setInterval(() => {
       this.date = new Date()
     }, 1000)
     // eslint-disable-next-line no-undef
-    this.dropdown = M.Dropdown.init(this.$refs.dropdown,{
-      constrainWidth:false
+    this.dropdown = M.Dropdown.init(this.$refs.dropdown, {
+      constrainWidth: false
     })
   },
   beforeDestroy() {
