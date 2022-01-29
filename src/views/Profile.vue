@@ -1,15 +1,24 @@
 <template>
   <div>
     <div class="page-title">
-      <h3>{{ 'ProfileTitle' | localize }}</h3>
+      <h3>{{'ProfileTitle' | localize}}</h3>
     </div>
 
     <form class="form" @submit.prevent="submitHandler">
       <div class="input-field">
-        <input id="description" type="text" v-model="name" :class="{invalid: $v.name.$dirty && !$v.name.required}">
+        <input
+            id="description"
+            type="text"
+            v-model="name"
+            :class="{invalid: $v.name.$dirty && !$v.name.required}"
+        >
         <label for="description">{{'Name'|localize}}</label>
-        <small class="helper-text invalid" v-if="$v.name.$dirty && !$v.name.required">{{'Message_EnterName' | localize}}</small>
+        <small
+            class="helper-text invalid"
+            v-if="$v.name.$dirty && !$v.name.required"
+        >{{'Message_EnterName'|localize}}</small>
       </div>
+
       <div class="switch">
         <label>
           English
@@ -20,7 +29,7 @@
       </div>
 
       <button class="btn waves-effect waves-light" type="submit">
-        {{ 'Update'| localize }}
+        {{'Update'|localize}}
         <i class="material-icons right">send</i>
       </button>
     </form>
@@ -28,20 +37,24 @@
 </template>
 
 <script>
-import {mapGetters, mapActions} from "vuex";
-import {required} from "vuelidate/lib/validators";
-
+import { mapGetters, mapActions } from 'vuex'
+import { required } from 'vuelidate/lib/validators'
 export default {
+  metaInfo() {
+    return {
+      title: this.$title('ProfileTitle')
+    }
+  },
   data: () => ({
     name: '',
     isRuLocale: true
   }),
   validations: {
-    name: {required}
+    name: { required }
   },
   mounted() {
     this.name = this.info.name
-    this.isRuLocale =this.info.locale === 'ru-RU'
+    this.isRuLocale = this.info.locale === 'ru-RU'
     setTimeout(() => {
       // eslint-disable-next-line no-undef
       M.updateTextFields()
@@ -64,12 +77,13 @@ export default {
           locale: this.isRuLocale ? 'ru-RU' : 'en-US'
         })
       } catch (e) {
-        console.log()
+        console.log(e)
       }
     }
   }
 }
 </script>
+
 
 <style scoped>
 .switch {
