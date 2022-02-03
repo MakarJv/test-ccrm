@@ -19,7 +19,7 @@ export default {
   props: ['value'],
   data: () => ({
     links: [
-      {title: localizeFilter('Menu_Bill'), url:'/'},
+      {title: localizeFilter('Menu_Bill'), url:'/bill'},
       {title: localizeFilter('Menu_History'), url:'/history'},
       {title: localizeFilter('Menu_Planning'), url:'/planning'},
       {title: localizeFilter('Menu_NewRecord'), url:'/record'},

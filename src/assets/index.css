@@ -2,6 +2,7 @@
     display: -webkit-flex;
     display: -ms-flexbox;
     display: flex;
+    flex-wrap: wrap;
     -webkit-flex-direction: column;
     -ms-flex-direction: column;
     flex-direction: column;
@@ -13,7 +14,8 @@
 }
 
 .auth-card {
-    width: 500px
+    width: 500px;
+    background-color: gainsboro;
 }
 
 .auth-submit {
@@ -28,9 +30,17 @@
     padding: 2rem
 }
 
-.app-main-layout {
+.app-main-layout  {
     position: relative;
     min-height: 100vh
+}
+
+.app-start-page-layout {
+    min-height: 100vh;
+    padding-top: 100px;
+    padding-left: 30px;
+    transition: padding-left .3s;
+    position: relative;
 }
 
 .app-sidenav {

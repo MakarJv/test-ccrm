@@ -9,6 +9,7 @@
 <script>
 import EmptyLayout from '@/layouts/EmptyLayout'
 import MainLayout from '@/layouts/MainLayout'
+import StartPageLayout from '@/layouts/StartPageLayout'
 
 export default {
   computed: {
@@ -17,7 +18,7 @@ export default {
     }
   },
   components: {
-    EmptyLayout, MainLayout
+    EmptyLayout, MainLayout, StartPageLayout
   }
 }
 </script>

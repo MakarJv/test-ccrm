@@ -1,57 +1,57 @@
 <template>
   <form class="card auth-card" @submit.prevent="submitHandler">
     <div class="card-content">
-      <span class="card-title">{{'CRM_Title'|localize}}</span>
+      <span class="card-title">{{ 'CRM_Title'|localize }}</span>
       <div class="input-field">
         <input
-            id="email"
-            type="text"
-            v-model.trim="email"
-            :class="{invalid: ($v.email.$dirty && !$v.email.required) || ($v.email.$dirty && !$v.email.email)}"
+          id="email"
+          type="text"
+          v-model.trim="email"
+          :class="{invalid: ($v.email.$dirty && !$v.email.required) || ($v.email.$dirty && !$v.email.email)}"
         >
         <label for="email">Email</label>
         <small
-            class="helper-text invalid"
-            v-if="$v.email.$dirty && !$v.email.required"
-        >{{'Message_EmailRequired'|localize}}</small>
+          class="helper-text invalid"
+          v-if="$v.email.$dirty && !$v.email.required"
+        >{{ 'Message_EmailRequired'|localize }}</small>
         <small
-            class="helper-text invalid"
-            v-else-if="$v.email.$dirty && !$v.email.email"
-        >{{'Message_EmailValid'|localize}}</small>
+          class="helper-text invalid"
+          v-else-if="$v.email.$dirty && !$v.email.email"
+        >{{ 'Message_EmailValid'|localize }}</small>
       </div>
       <div class="input-field">
         <input
-            id="password"
-            type="password"
-            v-model.trim="password"
-            :class="{invalid: ($v.password.$dirty && !$v.password.required) || ($v.password.$dirty && !$v.password.minLength)}"
+          id="password"
+          type="password"
+          v-model.trim="password"
+          :class="{invalid: ($v.password.$dirty && !$v.password.required) || ($v.password.$dirty && !$v.password.minLength)}"
         >
-        <label for="password">{{'Password'|localize}}</label>
+        <label for="password">{{ 'Password'|localize }}</label>
         <small
-            class="helper-text invalid"
-            v-if="$v.password.$dirty && !$v.password.required"
+          class="helper-text invalid"
+          v-if="$v.password.$dirty && !$v.password.required"
         >
-          {{'Message_EnterPassword'|localize}}
+          {{ 'Message_EnterPassword'|localize }}
         </small>
         <small
-            class="helper-text invalid"
-            v-else-if="$v.password.$dirty && !$v.password.minLength"
-        >{{'Message_MinLength'|localize}} {{$v.password.$params.minLength.min}}</small>
+          class="helper-text invalid"
+          v-else-if="$v.password.$dirty && !$v.password.minLength"
+        >{{ 'Message_MinLength'|localize }} {{ $v.password.$params.minLength.min }}</small>
       </div>
     </div>
     <div class="card-action">
       <div>
         <button
-            class="btn waves-effect waves-light auth-submit"
-            type="submit"
-        >{{'Login'|localize}}
+          class="btn waves-effect waves-light auth-submit"
+          type="submit"
+        >{{ 'Login'|localize }}
           <i class="material-icons right">send</i>
         </button>
       </div>
 
       <p class="center">
-        {{'NoAccount'|localize}}
-        <router-link to="/register">{{'Register'|localize}}</router-link>
+        {{ 'NoAccount'|localize }}
+        <router-link to="/register">{{ 'Register'|localize }}</router-link>
       </p>
     </div>
   </form>
@@ -95,7 +95,7 @@ export default {
       try {
         console.log()
         await this.$store.dispatch('login', formData)
-        this.$router.push('/')
+        this.$router.push('/bill')
       } catch (e) {
         console.log()
       }
