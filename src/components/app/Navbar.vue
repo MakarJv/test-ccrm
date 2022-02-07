@@ -1,15 +1,15 @@
 <template>
   <nav class="navbar orange lighten-1">
     <div class="nav-wrapper">
-      <div class="navbar-left">
-        <a href="#" @click.prevent="$emit('click')">
+      <div class="navbar-left" >
+        <a v-if="!this.$route.meta.custom" href="#" @click.prevent="$emit('click')">
           <i class="material-icons black-text">dehaze</i>
         </a>
         <span class="black-text">{{date | date('datetime')}}</span>
       </div>
 
       <ul class="right hide-on-small-and-down">
-        <li>
+        <li v-if="!this.$route.meta.custom">
           <a
               class="dropdown-trigger black-text"
               href="#"
@@ -33,6 +33,12 @@
               </a>
             </li>
           </ul>
+        </li>
+        <li v-if="this.$route.meta.custom">
+          <router-link class="black-text" to="/login">Войти</router-link>
+        </li>
+        <li v-if="this.$route.meta.custom">
+          <router-link class="black-text" to="/register">Регистрация</router-link>
         </li>
       </ul>
     </div>

@@ -5,7 +5,7 @@
 
       <Navbar @click="isOpen = !isOpen"/>
 
-      <Sidebar v-model="isOpen" :key="locale"/>
+      <Sidebar v-model="isOpen" :key="locale" v-if="!this.$route.meta.custom"/>
 
       <main class="app-content" :class="{full: !isOpen}">
         <div class="app-page">
@@ -29,7 +29,7 @@ import messages from '../utils/messages'
 export default {
   name: 'main-layout',
   data: () => ({
-    isOpen: true,
+    isOpen: false,
     loading: true
   }),
   async mounted() {

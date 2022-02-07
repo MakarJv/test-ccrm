@@ -65,7 +65,7 @@ const router = new Router({
 		{
 			path: '/',
 			name: 'start-page',
-			meta: {layout: 'start-page'},
+			meta: {layout: 'main', auth: false, custom: true},
 			component: () => import('./views/StartPage')
 		}
 	]

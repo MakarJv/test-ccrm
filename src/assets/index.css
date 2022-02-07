@@ -35,14 +35,6 @@
     min-height: 100vh
 }
 
-.app-start-page-layout {
-    min-height: 100vh;
-    padding-top: 100px;
-    padding-left: 30px;
-    transition: padding-left .3s;
-    position: relative;
-}
-
 .app-sidenav {
     padding-top: 5px;
     position: absolute;
